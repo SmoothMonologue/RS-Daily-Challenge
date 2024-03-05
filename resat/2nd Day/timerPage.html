@@ -9,17 +9,34 @@
         input {
             width: 50px; height: 50px; text-align: center;
         }
+        .timer {
+            display: flex; align-items: center; justify-content: center; border-radius: 8px; font-weight: bold; font-size: 1.5rem;
+        }
+        .space {
+            margin: 0 10px;
+        }
+        .timer_startTrigger {
+            background-color: aquamarine; border-radius: 8px; font-weight: bold; font-size: 0.8rem; border: none;
+        }
+        .timer_stopTrigger {
+            background-color: #ff4000; border-radius: 8px; font-weight: bold; font-size: 0.8rem; border: none;
+        }
+        .timer_resetTrigger {
+            background-color: #ffff80; border-radius: 8px; font-weight: bold; font-size: 0.8rem; border: none;
+        }
     </style>
     <body>
         <div class="timer">
-            <input class="hourCount" type="num" value="시간" /><span>:</span>
-            <input class="minuteCount" type="num" value="분" /><span>:</span>
+            <input class="hourCount" type="num" value="시간" /><span class="space">:</span>
+            <input class="minuteCount" type="num" value="분" /><span class="space">:</span>
             <input class="secondCount" type="num" value="초" />
         </div>
-        <br><br>
-        <input class="timer_startTrigger" type="button" value="시작" />
-        <input class="timer_stopTrigger" type="button" value="정지" />
-        <input class="timer_resetTrigger" type="button" value="초기화" />
+        <br>
+        <div class="timer">
+            <input class="timer_startTrigger" type="button" value="시작" /><span class="space"></span>
+            <input class="timer_stopTrigger" type="button" value="정지" /><span class="space"></span>
+            <input class="timer_resetTrigger" type="button" value="초기화" />
+        </div>
         <script src="timer.js"></script>
     </body>
 </html>
