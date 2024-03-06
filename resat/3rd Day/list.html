@@ -15,11 +15,14 @@
         </div>
         <div>
             <input class="add" type="text" name="add" value="할 일을 작성해주세요." />
-            <input class="priority" type="button" value="낮음" />
-            <input class="priority" type="button" value="보통" />
-            <input class="priority" type="button" value="높음" />
-            <input class="priority" type="button" value="아주 높음" />
-            <input class="upload" type="submit" value="추가" />
+            <select class="priority">
+                <option value="none">우선 순위 선택</option>
+                <option value="low">낮음</option>
+                <option value="normal">보통</option>
+                <option value="high">높음</option>
+                <option value="emergency">초 비상!!</option>
+            </select>
+            <input class="upload" type="submit" value="추가" disabled/>
         </div>
         <div class="fullList"></div>
         <script src="writing.js" defer></script>
