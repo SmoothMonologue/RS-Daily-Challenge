@@ -11,9 +11,9 @@
 <body>
     <h1>TO-DO LIST</h1>
     <div>
-        <input class="classify" type="button" value="전체" />
-        <input class="classify" type="button" value="완료" />
-        <input class="classify" type="button" value="미완료" />
+        <input class="both" type="button" value="전체" />
+        <input class="com" type="button" value="완료" />
+        <input class="incom" type="button" value="미완료" />
     </div>
     <div>
         <input class="add" type="text" name="add" value="할 일을 작성해주세요." />
@@ -28,6 +28,10 @@
     </div>
     <hr>
     <div class="fullList"></div>
+    <div>
+        <input class="sort" type="button" value="우선순위 내림차순 정렬" />
+        <input class="sortReverse" type="button" value="우선순위 오름차순 정렬" />
+    </div>
     <script src="writing.js" defer></script>
 </body>
 </html>

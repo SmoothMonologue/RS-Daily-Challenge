@@ -1,11 +1,15 @@
 /*참고 문헌
 https://velog.io/@janeljs/making-a-todolist 리스트 작성
 https://hianna.tistory.com/322  콤보 박스
+https://cloudcoke.tistory.com/33 게시판 구현할 때 글 수정 기능을 참고
 */
 const upload = document.querySelector(".upload"),
 add = document.querySelector(".add"),
 priority = document.querySelector(".priority"),
-cancel = document.querySelector(".cancel")
+both = document.querySelector(".both"),
+com = document.querySelector(".com"),
+incom = document.querySelector(".incom")
+//cancel = document.querySelector(".cancel")
 
 
 let checkable = [], goalList = [], levelList = [];
@@ -16,6 +20,9 @@ add.addEventListener("click", initial);
 priority.addEventListener("click", estimate);
 upload.addEventListener("click", addList);
 //cancel.addEventListener("click", switchToList);
+both.addEventListener("click", showList);
+com.addEventListener("click", showDone);
+incom.addEventListener("click", showYet);
 
 function addList() {
     let goal = add.value;
@@ -68,6 +75,28 @@ function deleteList() {
     goalList.splice(id, 1);
     levelList.splice(id, 1);
     showList();
+}
+
+function showDone() {
+    let list = "<ul>"
+    for (let i = 0; i < goalList.length; i++) {
+        if (checkable[i]) {
+            list += "<input type='checkbox' class='accomplish' id=" + i + " checked disabled>" + goalList[i] + "<button id='level'>" + levelList[i] + "</button><br>";
+        }
+    }
+    list += "</ul>";
+    document.querySelector(".fullList").innerHTML = list;
+}
+
+function showYet() {
+    let list = "<ul>"
+    for (let i = 0; i < goalList.length; i++) {
+        if (!checkable[i]) {
+            list += "<input type='checkbox' class='accomplish' id=" + i + " disabled>" + goalList[i] + "<button id='level'>" + levelList[i] + "</button><br>";
+        }
+    }
+    list += "</ul>";
+    document.querySelector(".fullList").innerHTML = list;
 }
 
 /*function switchToEdit() {
