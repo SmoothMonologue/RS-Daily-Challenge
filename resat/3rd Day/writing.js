@@ -8,11 +8,14 @@ add = document.querySelector(".add"),
 priority = document.querySelector(".priority"),
 both = document.querySelector(".both"),
 com = document.querySelector(".com"),
-incom = document.querySelector(".incom")
+incom = document.querySelector(".incom"),
+sort = document.querySelector(".sort"),
+sortReverse = document.querySelector(".sortReverse")
 //cancel = document.querySelector(".cancel")
 
 
 let checkable = [], goalList = [], levelList = [];
+let levelClassify = ["낮음", "보통", "높음", "초비상!!"];
 let isWriting = false;
 let level;
 
@@ -23,6 +26,8 @@ upload.addEventListener("click", addList);
 both.addEventListener("click", showList);
 com.addEventListener("click", showDone);
 incom.addEventListener("click", showYet);
+sort.addEventListener("click", sorting);
+sortReverse.addEventListener("click", sortingReverse);
 
 function addList() {
     let goal = add.value;
@@ -93,6 +98,44 @@ function showYet() {
     for (let i = 0; i < goalList.length; i++) {
         if (!checkable[i]) {
             list += "<input type='checkbox' class='accomplish' id=" + i + " disabled>" + goalList[i] + "<button id='level'>" + levelList[i] + "</button><br>";
+        }
+    }
+    list += "</ul>";
+    document.querySelector(".fullList").innerHTML = list;
+}
+
+function sorting() {
+    let list = "<ul>"
+    for (let i = levelClassify.length; i > -1; i--) {
+        for (let j = 0; j < goalList.length; j++) {
+            if (levelList[j] == levelClassify[i]) {
+                if (checkable[j]) {
+                    list += "<input type='checkbox' class='accomplish' id=" + i + " checked>" + goalList[j] + "<button id='level'>" + levelList[j] + "</button><input type='button' class='modify' id=" + j + " value='삭제'><br>";
+                }
+                else {
+                    list += "<input type='checkbox' class='accomplish' id=" + i + ">" + goalList[j] + "<button id='level'>" + levelList[j] + "</button><input type='button' class='modify' id=" + j + " value='삭제'><br>";
+                }
+
+            }
+        }
+    }
+    list += "</ul>";
+    document.querySelector(".fullList").innerHTML = list;
+}
+
+function sortingReverse() {
+    let list = "<ul>"
+    for (let i = 0; i < levelClassify.length; i++) {
+        for (let j = 0; j < goalList.length; j++) {
+            if (levelList[j] == levelClassify[i]) {
+                if (checkable[j]) {
+                    list += "<input type='checkbox' class='accomplish' id=" + i + " checked>" + goalList[j] + "<button id='level'>" + levelList[j] + "</button><input type='button' class='modify' id=" + j + " value='삭제'><br>";
+                }
+                else {
+                    list += "<input type='checkbox' class='accomplish' id=" + i + ">" + goalList[j] + "<button id='level'>" + levelList[j] + "</button><input type='button' class='modify' id=" + j + " value='삭제'><br>";
+                }
+
+            }
         }
     }
     list += "</ul>";
