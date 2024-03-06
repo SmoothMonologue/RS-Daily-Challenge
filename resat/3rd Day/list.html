@@ -1,31 +1,33 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>3일차 TO DO LIST 만들기</title>
-    </head>
-    <style>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3일차 TO DO LIST 만들기</title>
+</head>
+<style>
 
-    </style>
-    <body>
-        <h1>TO-DO LIST</h1>
-        <div>
-            <input class="classify" type="button" value="전체" />
-            <input class="classify" type="button" value="완료" />
-            <input class="classify" type="button" value="미완료" />
-        </div>
-        <div>
-            <input class="add" type="text" name="add" value="할 일을 작성해주세요." />
-            <select class="priority">
-                <option value="none">우선 순위 선택</option>
-                <option value="낮음">낮음</option>
-                <option value="보통">보통</option>
-                <option value="높음">높음</option>
-                <option value="초비상!!">초비상!!</option>
-            </select>
-            <input class="upload" id="upload" type="submit" value="추가" disabled/>
-        </div>
-        <hr>
-        <div class="fullList"></div>
-        <script src="writing.js" defer></script>
-    </body>
+</style>
+<body>
+    <h1>TO-DO LIST</h1>
+    <div>
+        <input class="classify" type="button" value="전체" />
+        <input class="classify" type="button" value="완료" />
+        <input class="classify" type="button" value="미완료" />
+    </div>
+    <div>
+        <input class="add" type="text" name="add" value="할 일을 작성해주세요." />
+        <select class="priority">
+            <option value="none">우선 순위 선택</option>
+            <option value="낮음">낮음</option>
+            <option value="보통">보통</option>
+            <option value="높음">높음</option>
+            <option value="초비상!!">초비상!!</option>
+        </select>
+        <input class="upload" id="upload" type="submit" value="추가" disabled/>
+    </div>
+    <hr>
+    <div class="fullList"></div>
+    <script src="writing.js" defer></script>
+</body>
 </html>
