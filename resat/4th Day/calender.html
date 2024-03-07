@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4일차 캘린더 만들기</title>
+</head>
+<style>
+    .days {
+        display: flex;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ddd;
+    }
+    .day {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: calc(100% / 7);
+        text-align: left;
+        color: #999;
+        font-size: 12px;
+        text-align: center;
+        border-radius:5px
+    }
+    .dates {
+        display: flex;
+        flex-flow: wrap;
+        height: 290px;
+    }
+</style>
+<body>
+    <div class="year-month"></div>
+    <div class="days">
+        <div class="day">MON</div>
+        <div class="day">TUE</div>
+        <div class="day">WED</div>
+        <div class="day">THU</div>
+        <div class="day">FRI</div>
+        <div class="day">SAT</div>
+        <div class="day">SUN</div>
+    </div>
+    <div class="dates"></div>
+    <script src="timeRendering.js"></script>
+</body>
+</html>
