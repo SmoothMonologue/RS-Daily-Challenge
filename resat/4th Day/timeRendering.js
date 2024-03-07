@@ -18,6 +18,7 @@ var currentYear = thisMonth.getFullYear();
 var currentMonth = thisMonth.getMonth();
 var dateOfMemo = [], contentOfMemo = [];
 var isNull = true;
+var checking;
 
 renderCalendar(thisMonth);
 
@@ -62,6 +63,7 @@ function renderCalendar(selectedMonth) {
 }
 
 function showMemo(i) {
+    checking = i;
     viewMemo.style.visibility = 'visible';
     selected.innerHTML = currentYear + '.' + (currentMonth + 1) + '.' + i;
     uploadMemo();
@@ -86,6 +88,9 @@ function saveMemo() {
     if (isNull) {
         dateOfMemo.push(selected.innerHTML);
         contentOfMemo.push(savedContent.value);
+
+        var checkedDate = document.querySelectorAll('.dates .current');
+        checkedDate[checking -1].classList.add('check');
         console.log(dateOfMemo, contentOfMemo);
     }
 }
@@ -101,5 +106,11 @@ function uploadMemo() {
     }
     if (isNull) {
         savedContent.value = "메모를 입력할 수 있습니다.";
+    }
+}
+
+function initial() {
+    if (savedContent.value == "메모를 입력할 수 있습니다.") {
+        savedContent.value = "";
     }
 }
