@@ -115,6 +115,7 @@ function deleteMemo() {
         if (selected.innerHTML == dateOfMemo[i]) {
             dateOfMemo.splice(i, 1);
             contentOfMemo.splice(i, 1);
+            savedContent.value = "메모를 입력할 수 있습니다.";
             
             var checkedDate = document.querySelectorAll('.dates .current');
             checkedDate[checking -1].classList.remove('check');
