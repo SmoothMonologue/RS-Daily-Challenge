@@ -81,7 +81,7 @@ function saveMemo() {
         if (selected.innerHTML == dateOfMemo[i]) {
             contentOfMemo[i] = savedContent.value;
             isNull = false;
-            console.log(dateOfMemo, contentOfMemo);
+            //console.log(dateOfMemo, contentOfMemo);
             break;
         }
     }
@@ -91,7 +91,7 @@ function saveMemo() {
 
         var checkedDate = document.querySelectorAll('.dates .current');
         checkedDate[checking -1].classList.add('check');
-        console.log(dateOfMemo, contentOfMemo);
+        //console.log(dateOfMemo, contentOfMemo);
     }
 }
 
@@ -106,6 +106,24 @@ function uploadMemo() {
     }
     if (isNull) {
         savedContent.value = "메모를 입력할 수 있습니다.";
+    }
+}
+
+function deleteMemo() {
+    isNull = false;
+    for (var i = 0; i < dateOfMemo.length; i++) {
+        if (selected.innerHTML == dateOfMemo[i]) {
+            dateOfMemo.splice(i, 1);
+            contentOfMemo.splice(i, 1);
+            
+            var checkedDate = document.querySelectorAll('.dates .current');
+            checkedDate[checking -1].classList.remove('check');
+            isNull = true;
+            break;
+        }
+    }
+    if (!isNull) {
+        alert("메모가 존재하지 않습니다.");
     }
 }
 
