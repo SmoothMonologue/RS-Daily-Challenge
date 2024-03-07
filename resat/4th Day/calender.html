@@ -6,6 +6,26 @@
     <title>4일차 캘린더 만들기</title>
 </head>
 <style>
+    .navigation {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 78px;
+    }
+    .year-month {
+        width: 300px;
+        text-align: center;
+        line-height: 1;
+    }
+    .go-prev, .go-next {
+        display: block;
+        width: 50px;
+        height: 78px;
+        justify-content: center;
+        align-items: center;
+    }
     .days {
         display: flex;
         margin-bottom: 20px;
@@ -18,7 +38,7 @@
         justify-content: center;
         width: calc(100% / 7);
         text-align: left;
-        color: #999;
+        color: #1e1d1d;
         font-size: 12px;
         text-align: center;
         border-radius:5px
@@ -28,9 +48,22 @@
         flex-flow: wrap;
         height: 290px;
     }
+    .day:nth-child(7n -1) {
+        color: #3c6ffa;
+    }
+    .day:nth-child(7n) {
+        color: #ed2a61;
+    }
+    .day.disable {
+        color: #999;
+    }
 </style>
 <body>
-    <div class="year-month"></div>
+    <div class="navigation">
+        <a href="javascript:;" class="go-prev"><</a>
+        <div class="year-month"></div>
+        <a href="javascript:;" class="go-next">></a>
+    </div>
     <div class="days">
         <div class="day">MON</div>
         <div class="day">TUE</div>

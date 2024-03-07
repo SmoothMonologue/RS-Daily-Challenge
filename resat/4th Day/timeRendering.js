@@ -28,6 +28,8 @@ function renderCalendar(thisMonth) {
     var nextDate = endDay.getDate();
     var nextDay = endDay.getDay();
 
+    document.querySelector(".year-month").innerHTML = currentYear + '.' + (currentMonth + 1);
+
     calendar.innerHTML = '';
 
     for (var i = prevDate - prevDay + 1; i <= prevDate; i++) {
