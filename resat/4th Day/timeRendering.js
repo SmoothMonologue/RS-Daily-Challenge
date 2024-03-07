@@ -4,7 +4,8 @@ https://songsong.dev/entry/Javascript로-달력-만들기
 const calendar = document.querySelector(".dates"),
 title = document.querySelector(".year-month"),
 prev = document.querySelector(".go-prev"),
-next = document.querySelector(".go-next")
+next = document.querySelector(".go-next"),
+viewMemo = document.getElementById("memo")
 
 var date = new Date(); 
 var utc = date.getTime() + (date.getTimezoneOffset() * 60 * 1000); 
@@ -13,6 +14,7 @@ var today = new Date(utc + kstGap);
 var thisMonth = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 var currentYear = thisMonth.getFullYear(); 
 var currentMonth = thisMonth.getMonth();
+var allMemo = [][2];
 
 renderCalendar(thisMonth);
 
@@ -43,7 +45,7 @@ function renderCalendar(selectedMonth) {
         calendar.innerHTML += '<div class="day prev disable">' + i + '</div>'
     }
     for (var i = 1; i <= nextDate; i++) {
-        calendar.innerHTML += '<div class="day current">' + i + '</div>'
+        calendar.innerHTML += '<div class="day current" onclick="showMemo()">' + i + '</div>';
     }
     for (var i = 1; i <= (7 - nextDay == 7 ? 0 : 7 - nextDay); i++) {
         calendar.innerHTML += '<div class="day next disable">' + i + '</div>'
@@ -54,4 +56,14 @@ function renderCalendar(selectedMonth) {
         var currentMonthDate = document.querySelectorAll('.dates .current');
         currentMonthDate[todayDate -1].classList.add('today');
     }
+}
+
+function showMemo() {
+    viewMemo.style.visibility = 'visible';
+    console.log(viewMemo.style.visibility);
+}
+
+function hideMemo() {
+    viewMemo.style.visibility = 'hidden';
+    console.log(viewMemo.style.visibility);
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,12 +58,15 @@
     .day.disable {
         color: #999;
     }
+    #memo {
+        visibility: hidden;
+    }
 </style>
 <body>
     <div class="navigation">
-        <a href="javascript:;" class="go-prev"><</a>
+        <a href="javascript:;" class="go-prev">&#8656</a>
         <div class="year-month"></div>
-        <a href="javascript:;" class="go-next">></a>
+        <a href="javascript:;" class="go-next">&#8658</a>
     </div>
     <div class="days">
         <div class="day">MON</div>
@@ -75,6 +78,14 @@
         <div class="day">SUN</div>
     </div>
     <div class="dates"></div>
+    <div id="memo">
+        <h2 class="selected">오늘 날짜</h2>
+        <div id="content">내용</div>
+        <button id="submit">등록</button>
+        <button id="edit">수정</button>
+        <button id="delete">삭제</button>
+        <button id="back" onclick="hideMemo()">닫기</button>
+    </div>
     <script src="timeRendering.js"></script>
 </body>
 </html>
