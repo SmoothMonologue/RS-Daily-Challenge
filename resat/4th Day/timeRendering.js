@@ -5,7 +5,8 @@ const calendar = document.querySelector(".dates"),
 title = document.querySelector(".year-month"),
 prev = document.querySelector(".go-prev"),
 next = document.querySelector(".go-next"),
-viewMemo = document.getElementById("memo")
+viewMemo = document.getElementById("memo"),
+selected = document.querySelector(".selected")
 
 var date = new Date(); 
 var utc = date.getTime() + (date.getTimezoneOffset() * 60 * 1000); 
@@ -45,7 +46,7 @@ function renderCalendar(selectedMonth) {
         calendar.innerHTML += '<div class="day prev disable">' + i + '</div>'
     }
     for (var i = 1; i <= nextDate; i++) {
-        calendar.innerHTML += '<div class="day current" onclick="showMemo()">' + i + '</div>';
+        calendar.innerHTML += '<div class="day current" onclick="showMemo(' + i + ')">' + i + '</div>';
     }
     for (var i = 1; i <= (7 - nextDay == 7 ? 0 : 7 - nextDay); i++) {
         calendar.innerHTML += '<div class="day next disable">' + i + '</div>'
@@ -58,12 +59,21 @@ function renderCalendar(selectedMonth) {
     }
 }
 
-function showMemo() {
+function showMemo(i) {
     viewMemo.style.visibility = 'visible';
+    selected.innerHTML = currentYear + '.' + (currentMonth + 1) + '.' + i;
     console.log(viewMemo.style.visibility);
 }
 
 function hideMemo() {
     viewMemo.style.visibility = 'hidden';
     console.log(viewMemo.style.visibility);
+}
+
+function saveMemo() {
+
+}
+
+function uploadMemo() {
+
 }
