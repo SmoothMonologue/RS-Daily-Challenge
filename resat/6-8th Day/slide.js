@@ -1,5 +1,6 @@
 /* 참고 문헌
 https://velog.io/@grinding_hannah/JavaScript-자바스크립트로-캐러셀Carousel-구현하기
+https://mong-blog.tistory.com/entry/carousel-slider-만들기-with-js
 */
 
 const container = document.querySelector(".container"),
