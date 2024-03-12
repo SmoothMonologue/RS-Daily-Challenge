@@ -10,6 +10,8 @@ nextBtn = document.querySelector(".next")
 prevBtn.addEventListener('click', translateContainer.bind(this, 1));
 nextBtn.addEventListener('click', translateContainer.bind(this, -1));
 
+setInterval(translateContainer.bind(this, -1), 2000);
+
 function translateContainer(direction) {
     const selectedBtn = (direction === 1) ? 'prev' : 'next';
 
