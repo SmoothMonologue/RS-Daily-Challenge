@@ -60,7 +60,6 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
     -webkit-box-align: center;
     align-items: center;
     cursor: pointer;
-    height: 100%;
     padding-left: 16px;
     padding-right: 13px;
 }
@@ -213,6 +212,9 @@ li {
     display: block;
     object-fit: cover;
     transition: border 0.2s ease 0s;
+    /*&:hover {
+        border: 15px hsl(36, 100%, 50%);
+    }*/
 }
 
 .project .project-card-info-wrapper {
