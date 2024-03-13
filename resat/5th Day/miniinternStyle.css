@@ -30,7 +30,7 @@ html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
     color: rgb(26, 27, 28);
 }
 
-:hover {
+:root {
     --swiper-theme-color: #007aff;
 }
 
@@ -186,6 +186,9 @@ li {
     border-radius: 5px;
     cursor: pointer;
     list-style: none;
+    &:hover {
+        transform: translateY(-20px);
+    }
 }
 
 .project {
