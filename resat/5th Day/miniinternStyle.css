@@ -322,8 +322,8 @@ li {
 
 .new-service-slider .container {
     position: absolute;
-    left: -60rem;
-    width: 300%; 
+    left: -30rem;
+    width: 500%; 
     top: 0;
     display: flex;
 }
@@ -341,8 +341,9 @@ li {
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    font-size: 5rem;
-    color: #070000;
+    font-size: 15px;
+    background-color: hsl(140, 99%, 26%);
+    color: hwb(0 100% 0% / 0.918);
 }
 
 .btn {
