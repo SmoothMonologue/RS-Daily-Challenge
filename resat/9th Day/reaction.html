@@ -13,10 +13,10 @@
             <i class="fa fa-bars"></i>
         </a>
         <nav id="navigation-bar" class="nav-bar">
-            <a class="active">HOME</a>
-            <a>About</a>
-            <a>Contact</a>
-            <a>FAQ</a>
+            <a class="menu active" onclick="switchPage()">HOME</a>
+            <a class="menu" onclick="switchPage()">About</a>
+            <a class="menu" onclick="switchPage()">Contact</a>
+            <a class="menu" onclick="switchPage()">FAQ</a>
         </nav>
         
     </header>
@@ -26,6 +26,19 @@
         function onNavClick() {
             var navbar = document.getElementById('navigation-bar');
             navbar.classList.toggle('isClicked');
+        }
+
+        function switchPage() {
+            removeActive();
+            event.currentTarget.classList.add('active');
+        }
+
+        function removeActive() {
+            var menu = document.querySelectorAll('.menu');
+            console.log(menu);
+            for (let i = 0; i < menu.length; i++) {
+                menu[i].classList.remove('active');
+            }
         }
     </script>
 </body>
