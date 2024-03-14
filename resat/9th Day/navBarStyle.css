@@ -32,4 +32,8 @@ header {
     .menu-icon {
         display: block;
    }
+
+   .nav-bar {
+        display: none;
+   }
 }
