@@ -9,15 +9,24 @@
 </head>
 <body>
     <header>
-        <div id="navigation-bar" class="nav-bar">
+        <a class="menu-icon" onclick="onNavClick()">
+            <i class="fa fa-bars"></i>
+        </a>
+        <nav id="navigation-bar" class="nav-bar">
             <a class="active">HOME</a>
             <a>About</a>
             <a>Contact</a>
             <a>FAQ</a>
-        </div>
-        <a class="menu-icon">
-            <i class="fa fa-bars"></i>
-        </a>
+        </nav>
+        
     </header>
+    <script>
+        /*참고 문헌
+        https://sisiblog.tistory.com/326*/
+        function onNavClick() {
+            var navbar = document.getElementById('navigation-bar');
+            navbar.classList.toggle('isClicked');
+        }
+    </script>
 </body>
 </html>
