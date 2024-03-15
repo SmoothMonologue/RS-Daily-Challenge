@@ -7,7 +7,7 @@ loginBar = document.getElementById('login'),
 menu = document.querySelectorAll('.menu');
 
 let idList = ['hojin', 'admin'], pwrdList = ['1234', '5678'];
-let id = 0, isLogin = false;
+let id = 0, isLogin = false, isID = false;
 //Event home = 
 
 /*for (let i = 0; i < menu.length; i++) {
@@ -31,7 +31,7 @@ function switchPage(event) {
             //content.classList.add('login-page');
             if (!isLogin) {
                 content.innerHTML
-                = "<h3>로그인 페이지입니다.</h3>    <div class='login-box'><input id='id' type='text'><input id='pwrd' type='password'><input class='login-btn' type='submit' onclick='identifying()' value='로그인'></div>";
+                = "<h3>로그인 페이지입니다.</h3>    <div class='login-box'><input id='id' type='text'><input id='pwrd' type='password'><div class='err-reason'></div><input class='login-btn' type='submit' onclick='identifying()' value='로그인'></div>";
             }
             else {
                 content.innerHTML
@@ -65,10 +65,13 @@ function removeActive() {
 
 function identifying() {
     let inputId = document.getElementById('id'),
-    inputPwrd = document.getElementById('pwrd')
+    inputPwrd = document.getElementById('pwrd'),
+    reason = document.querySelector('.err-reason')
 
+    isID = false;
     for (let i = 0; i < idList.length; i++) {
         if (inputId.value == idList[i]) {
+            isID = true;
             if (inputPwrd.value == pwrdList[i]) {
                 //console.log('로그인 성공', inputId, inputPwrd);
                 id = i;
@@ -78,10 +81,14 @@ function identifying() {
                 break;
             }
             else {
-                alert("비밀번호 오류");
+                reason.innerHTML = "비밀번호 불일치";
                 break;
             }
         }
+    }
+
+    if (!isID) {
+        reason.innerHTML = "아이디 불일치";
     }
 
     if (!isLogin) {

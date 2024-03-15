@@ -60,10 +60,14 @@ header {
     width: 30%;
     margin-top: 30px;
     margin-bottom: 30px;
-    display: -moz-grid-line;
+    display: grid;
     border: 5px solid #f64c72;
 }
 
 .content .login-box .login-btn {
     width: 20%;
+}
+
+.content .login-box .err-reason {
+    color: #f8053a;
 }
