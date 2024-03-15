@@ -23,11 +23,11 @@ function switchPage(event) {
             //content.classList.add('login-page');
             if (!isLogin) {
                 content.innerHTML
-                = "<h3>로그인 페이지입니다.</h3>    <div class='login-box'><input id='id' type='text'><input id='pwrd' type='password'><input class='login-btn' type='submit' onclick='Identifying()' value='로그인'></div>";
+                = "<h3>로그인 페이지입니다.</h3>    <div class='login-box'><input id='id' type='text'><input id='pwrd' type='password'><input class='login-btn' type='submit' onclick='identifying()' value='로그인'></div>";
             }
             else {
                 content.innerHTML
-                = "<h3>로그인하셨습니다.</h3>";
+                = "<h3>로그인하셨습니다.    <div class='login-box'><input class='logout-btn' type='submit' onclick='logout()' value='로그아웃'></div></h3>";
             }
             break;
 
@@ -61,7 +61,7 @@ function removeActive() {
     }
 }
 
-function Identifying() {
+function identifying() {
     let inputId = document.getElementById('id'),
     inputPwrd = document.getElementById('pwrd')
 
@@ -75,7 +75,7 @@ function Identifying() {
                 break;
             }
             else {
-                isLogin = false;
+                logout();
                 alert("비밀번호 오류");
                 break;
             }
@@ -85,4 +85,14 @@ function Identifying() {
     if (!isLogin) {
         alert("로그인 실패!");
     }
+}
+
+function logout() {
+    isLogin = false;
+    alert("로그아웃 하셨습니다!");
+    window.location.reload();
+}
+
+function home() {
+
 }
