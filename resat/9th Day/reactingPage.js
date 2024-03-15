@@ -2,10 +2,17 @@
 https://sisiblog.tistory.com/326
 https://webisfree.com/2017-09-06/자바스크립트-event-target-프로퍼티와-currenttarget-프로퍼티의-차이점은*/
 const content = document.querySelector('.content'),
-loginBar = document.getElementById('login')
+homeBar = document.getElementById('home'),
+loginBar = document.getElementById('login'),
+menu = document.querySelectorAll('.menu');
 
 let idList = ['hojin', 'admin'], pwrdList = ['1234', '5678'];
 let id = 0, isLogin = false;
+//Event home = 
+
+/*for (let i = 0; i < menu.length; i++) {
+    menu[i].addEventListener('click', switchPage(event));
+}*/
 
 function onNavClick() {
     var navbar = document.getElementById('navigation-bar');
@@ -15,8 +22,9 @@ function onNavClick() {
 function switchPage(event) {
     var currentPage = event.currentTarget;
     //console.log(currentPage.id);
+    //console.log(event);
     removeActive();
-    currentPage.classList.add('active');
+    addActive(currentPage);
 
     switch (currentPage.id) {
         case 'login':
@@ -32,30 +40,24 @@ function switchPage(event) {
             break;
 
         case 'about':
-            content.innerHTML = "<h3>정보 페이지입니다.</h3>";
+            content.innerHTML = "<h3>정보 페이지입니다.</h3>    <div>김호진 경기대학교 컴퓨터공학부</div>";
             break;
 
         case 'contact':
-            content.innerHTML = "<h3>연락 페이지입니다.</h3>";
+            content.innerHTML = "<h3>연락 페이지입니다.</h3>    <div>tel: 010-8600-5080</div><div>E-mail: mobugy99@naver.com</div>";
             break;
 
         case 'faq':
-            content.innerHTML = "<h3>문답 페이지입니다.</h3>";
+            content.innerHTML = "<h3>문답 페이지입니다.</h3>    <div>event 객체를 참조하면서 일괄적으로 onclick을 집어넣고 싶으면 어떻게 하나요?</div><div>글쎄요, 저도 모르겠는데요?</div>";
             break;
     
         default:
-            if(isLogin) {
-                console.log(idList[id]);
-                loginBar.innerHTML = idList[id];
-            }
-            content.innerHTML = "<h3>HOME입니다.</h3>";
+            home();
             break;
     }
 }
 
 function removeActive() {
-    var menu = document.querySelectorAll('.menu');
-    //console.log(menu);
     for (let i = 0; i < menu.length; i++) {
         menu[i].classList.remove('active');
     }
@@ -68,14 +70,14 @@ function identifying() {
     for (let i = 0; i < idList.length; i++) {
         if (inputId.value == idList[i]) {
             if (inputPwrd.value == pwrdList[i]) {
-                console.log('로그인 성공', inputId, inputPwrd);
+                //console.log('로그인 성공', inputId, inputPwrd);
                 id = i;
                 isLogin = true;
                 alert("로그인 성공!");
+                home();
                 break;
             }
             else {
-                logout();
                 alert("비밀번호 오류");
                 break;
             }
@@ -94,5 +96,15 @@ function logout() {
 }
 
 function home() {
+    removeActive();
+    addActive(homeBar);
+    if(isLogin) {
+        //console.log(idList[id]);
+        loginBar.innerHTML = idList[id];
+    }
+    content.innerHTML = "<h3>HOME입니다.</h3>";
+}
 
+function addActive(bar) {
+    bar.classList.add('active');
 }
