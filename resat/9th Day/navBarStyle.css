@@ -51,3 +51,19 @@ header {
         z-index: 1;
    }
 }
+
+.content {
+    align-content: center;
+}
+
+.content .login-box {
+    width: 30%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: -moz-grid-line;
+    border: 5px solid #f64c72;
+}
+
+.content .login-box .login-btn {
+    width: 20%;
+}

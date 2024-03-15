@@ -13,65 +13,17 @@
             <i class="fa fa-bars"></i>
         </a>
         <nav id="navigation-bar" class="nav-bar">
-            <a id="home" class="menu active" onclick="switchPage()">HOME</a>
-            <a id="login" class="menu" onclick="switchPage()">Login</a>
-            <a id="about" class="menu" onclick="switchPage()">About</a>
-            <a id="contact" class="menu" onclick="switchPage()">Contact</a>
-            <a id="faq" class="menu" onclick="switchPage()">FAQ</a>
+            <a id="home" class="menu active" onclick="switchPage(event)">HOME</a>
+            <a id="about" class="menu" onclick="switchPage(event)">About</a>
+            <a id="contact" class="menu" onclick="switchPage(event)">Contact</a>
+            <a id="faq" class="menu" onclick="switchPage(event)">FAQ</a>
+            <a id="login" class="menu" onclick="switchPage(event)">Login</a>
         </nav>
         
     </header>
     <div class="content">
-        
+        <h3>HOME입니다.</h3>
     </div>
-    <script>
-        /*참고 문헌
-        https://sisiblog.tistory.com/326
-        https://webisfree.com/2017-09-06/자바스크립트-event-target-프로퍼티와-currenttarget-프로퍼티의-차이점은*/
-        const content = document.querySelector('.content')
-        
-        function onNavClick() {
-            var navbar = document.getElementById('navigation-bar');
-            navbar.classList.toggle('isClicked');
-        }
-
-        function switchPage() {
-            var currentPage = event.currentTarget;
-            //console.log(currentPage.id);
-            removeActive();
-            currentPage.classList.add('active');
-
-            switch (currentPage.id) {
-                case 'login':
-                    //content.classList.add('login-page');
-                    content.innerHTML = "<h3>로그인 페이지입니다.</h3>";
-                    break;
-
-                case 'about':
-                    content.innerHTML = "<h3>정보 페이지입니다.</h3>";
-                    break;
-
-                case 'contact':
-                    content.innerHTML = "<h3>연락 페이지입니다.</h3>";
-                    break;
-
-                case 'faq':
-                    content.innerHTML = "<h3>문답 페이지입니다.</h3>";
-                    break;
-            
-                default:
-                    content.innerHTML = "<h3>HOME입니다.</h3>";
-                    break;
-            }
-        }
-
-        function removeActive() {
-            var menu = document.querySelectorAll('.menu');
-            //console.log(menu);
-            for (let i = 0; i < menu.length; i++) {
-                menu[i].classList.remove('active');
-            }
-        }
-    </script>
+    <script src="reactingPage.js"></script>
 </body>
 </html>
